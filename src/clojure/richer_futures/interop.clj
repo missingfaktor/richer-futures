@@ -26,7 +26,8 @@
 
 (defn valid-numeral-arity?
   [arity]
-  (<= 0 arity max-fixed-arity-allowed-by-both-scala-and-clojure))
+  (and (number? arity)
+       (<= 0 arity max-fixed-arity-allowed-by-both-scala-and-clojure)))
 
 (defn valid-arity?
   [arity]
