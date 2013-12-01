@@ -1,7 +1,8 @@
 (ns richer-futures.core-test
   (:require [clojure.test :refer :all]
+            [richer-futures.util :refer :all]
             [richer-futures.interop :refer :all]
-            [richer-futures.core :refer :all]))
+            [richer-futures.basic :refer :all]))
 
 (deftest fail-with-must-throw-with-given-message
   (try
