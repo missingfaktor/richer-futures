@@ -1,23 +1,9 @@
-(ns richer-futures.interop)
-
-(defn fail-with
-  [msg]
-  (throw (RuntimeException. msg)))
-
-(defn conceding
-  "Conditional function application combinator. Meant to be used in conjunction with ->>."
-  [cond fun x]
-  (if cond
-    (fun x)
-    x))
+(ns richer-futures.interop
+  (:use [richer-futures.util]))
 
 (defn arity-of-method
   [method]
   (->> method .getParameterTypes alength))
-
-(defn append
-  [xs x]
-  (conj (vec xs) x))
 
 ; Using some sneaky reflection to figure out arity of a function.
 ; Credit partly goes to http://stackoverflow.com/a/1813967/192247.
@@ -34,10 +20,6 @@
          sort
          (conceding is-rest-fn
                     (fn [v] (append v :rest))))))
-
-(defn generate-n
-  [fun n]
-  (take n (iterate (constantly (fun)) (fun))))
 
 (def max-fixed-arity-allowed-by-both-scala-and-clojure
   20)
