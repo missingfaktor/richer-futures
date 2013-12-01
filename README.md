@@ -19,7 +19,7 @@ This section will be updated once this project is in usable state.
 
 ## References
 
-1. [Scala futures - official documentation][2]
+1. [Scala futures - official documentation][2].
 2. [Another attempt][3] at providing better futures for Clojure.
 3. [Rich Hickey's presentation on CSP][1] where he explains why they consciously chose against evolving futures in Clojure.
 
