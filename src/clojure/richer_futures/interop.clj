@@ -11,7 +11,7 @@
   [fun]
   (let [all-declared-methods (.getDeclaredMethods (class fun))
         methods-named (fn [name]
-                          (filter #(= (.getName %) name) all-declared-methods))
+                        (filter #(= (.getName %) name) all-declared-methods))
         methods-named-invoke (methods-named "invoke")
         methods-named-do-invoke (methods-named "doInvoke")
         is-rest-fn (seq methods-named-do-invoke)]
@@ -19,7 +19,7 @@
          (map arity-of-method)
          sort
          (provided is-rest-fn
-                    (fn [v] (append v :rest))))))
+                   (fn [v] (append v :rest))))))
 
 (def max-fixed-arity-allowed-by-both-scala-and-clojure
   20)
