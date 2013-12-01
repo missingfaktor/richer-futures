@@ -9,6 +9,7 @@
   :java-source-paths ["src/java"]
 
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.scala-lang/scala-library "2.10.3"]]
+                 [org.scala-lang/scala-library "2.10.3"]
+                 [slingshot "0.10.3"]]
 
   :aot :all)

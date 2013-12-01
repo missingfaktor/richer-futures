@@ -1,5 +1,7 @@
 (ns richer-futures.interop
-  (:use [richer-futures.util]))
+  (:import [scala Function$ Some None$])
+  (:use [richer-futures.util]
+        [slingshot.slingshot]))
 
 (defn arity-of-method
   [method]
@@ -73,3 +75,18 @@
     19 (generate-scala-function-proxy 19 fun)
     :rest (fail-with "Rest functions not supported right now.")))
 
+(defn raise-not-in-domain
+  [value]
+  (throw+ {:type ::not-in-domain
+           :value value}))
+
+; Roundabout way of creating a PartialFunction.
+; IFn<[ a -> b/:not-in-domain ]> to IFn<[ a -> Option b ]> to PFn a b
+(defn create-scala-partial-function
+  [fun]
+  (let [opt-fun (fn [x]
+                  (try+
+                    (Some. (fun x))
+                    (catch [:type ::not-in-domain] _
+                      None$/MODULE$)))]
+    (.unlift Function$/MODULE$ (create-scala-function opt-fun 1))))
