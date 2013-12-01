@@ -18,7 +18,7 @@
     (->> methods-named-invoke
          (map arity-of-method)
          sort
-         (conceding is-rest-fn
+         (provided is-rest-fn
                     (fn [v] (append v :rest))))))
 
 (def max-fixed-arity-allowed-by-both-scala-and-clojure

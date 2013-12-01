@@ -4,7 +4,7 @@
   [msg]
   (throw (RuntimeException. msg)))
 
-(defn conceding
+(defn provided
   "Conditional function application combinator. Meant to be used in conjunction with ->>."
   [cond fun x]
   (if cond
