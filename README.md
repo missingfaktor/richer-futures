@@ -32,5 +32,5 @@ Distributed under the Eclipse Public License, the same as Clojure.
 
 
 [1]: http://www.infoq.com/presentations/clojure-core-async
-[2]: http://docs.scala-lang.org/overviews/core/futures.html)
+[2]: http://docs.scala-lang.org/overviews/core/futures.html
 [3]: http://www.niclas-meier.de/2012/06/alternate-futures-and-promises-for-clojure/
