@@ -20,3 +20,13 @@
 (defn block-and-await [fut]
   (.result Await$/MODULE$ fut *max-await-duration*))
 
+(defn on-success [fut fun]
+  (.onSuccess fut (create-scala-partial-function fun) *execution-context*))
+
+(defn completed? [fut]
+  (.isCompleted fut))
+
+(defn on-failure [fut fun]
+  (.onFailure fut (create-scala-partial-function fun) *execution-context*))
+
+
