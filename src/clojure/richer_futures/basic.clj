@@ -20,3 +20,38 @@
 (defn block-and-await [fut]
   (.result Await$/MODULE$ fut *max-await-duration*))
 
+(defn future-map [fut fun]
+  (.map fut (create-scala-function fun 1) *execution-context*))
+
+(defn future-flatmap [fut fun]
+  (.flatMap fut (create-scala-function fun 1) *execution-context*))
+
+(defn future-mresult [v]
+  (.successful Future$/MODULE$ v))
+;
+;(def f1 (future
+;         (do
+;           (Thread/sleep 50000)
+;           2)))
+;;
+;(def f2 (future
+;          (do
+;            (Thread/sleep 50000)
+;            10)))
+;
+;
+;(future-map f1
+;  (fn [x]
+;    (future-map f2
+;      (fn [y]
+;        (println (+ x y))
+;        ))))
+;
+;
+;(future-flatmap f1
+;  (fn [x]
+;    (future-flatmap f2
+;      (fn [y]
+;        (println (+ x y))
+;        ))))
+
