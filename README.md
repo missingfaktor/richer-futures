@@ -1,3 +1,5 @@
+## NOTE: This project has been abandoned.
+
 # richer-futures
 
 Clojure has futures, but they are not much more powerful than Java's futures. They support a blocking await, a few functions to fiddle with promises, but that's about it.
@@ -25,7 +27,7 @@ This section will be updated once this project is in usable state.
 
 ## License
 
-Copyright © 2013 Rahul Goma Phulore, Sumit Mahamuni, Pooja Akshantal
+Copyright © 2013 Rahul Goma Phulore, Sumit Mahamuni.
 
 Distributed under the Eclipse Public License, the same as Clojure.
 
